@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import java.util.Collections;
+import java.util.List;
 
 @Repository
 public class PassportRepoImpl implements PassportRepo{
@@ -17,5 +19,11 @@ public class PassportRepoImpl implements PassportRepo{
         System.out.println("Data is: "+manager);
         manager.getTransaction().commit();
         return "not Saved";
+    }
+
+    @Override
+    public List<PassportEntity> getAll() {
+        return Persistence.createEntityManagerFactory("myname")
+                .createEntityManager().createNamedQuery("getAll").getResultList();
     }
 }

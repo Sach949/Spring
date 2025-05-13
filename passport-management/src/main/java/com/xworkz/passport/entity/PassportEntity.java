@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "passport_info")
+@NamedQuery(name ="getAll", query = "select p from PassportEntity p")
 @Data
 public class PassportEntity {
 

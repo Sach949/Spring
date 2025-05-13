@@ -3,15 +3,15 @@ package com.xworkz.passport.service;
 import com.xworkz.passport.dto.PassportDto;
 import com.xworkz.passport.entity.PassportEntity;
 import com.xworkz.passport.repo.PassportRepo;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
 
 @Service
 public class PassportServiceImpl implements PassportService{
 
-    private static final Log log = LogFactory.getLog(PassportServiceImpl.class);
     @Autowired
     PassportRepo repo;
 
@@ -21,7 +21,7 @@ public class PassportServiceImpl implements PassportService{
         if(dto != null){
 
             PassportEntity passportEntity = new PassportEntity();
-            passportEntity.setRegID(dto.getRegID());
+            //passportEntity.setRegID(dto.getRegID()); as we are auto generating so not required.
             passportEntity.setApplicantName(dto.getApplicantName());
             passportEntity.setFatherName(dto.getFatherName());
             passportEntity.setMotherName(dto.getMotherName());
@@ -39,5 +39,14 @@ public class PassportServiceImpl implements PassportService{
         }
 
         return "saved";
+    }
+
+    @Override
+    public List<PassportDto> getAll() {
+        List<PassportEntity> entityList = repo.getAll();
+        entityList.forEach(a->{
+            System.out.println("List of passport entity: "+a.toString());
+        });
+        return Collections.emptyList();
     }
 }
