@@ -5,10 +5,13 @@ import com.xworkz.passport.entity.PassportEntity;
 import com.xworkz.passport.service.PassportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,9 +29,20 @@ public class PassportController {
     }
 
     @GetMapping("getAllPassportApplication")
-    public String getAll() {
-        service.getAll();
+    public String getAll(Model model) {
+        List<PassportDto> dtos = service.getAll();
+        model.addAttribute("listOfDtos",dtos);
+//        service.getAll();
+//        System.out.println("invoking controller"+service.getAll());
         System.out.println("Application details are: ");
         return "view.jsp";
+    }
+
+    @GetMapping("getById")
+    public String getApplicantById(@RequestParam("passportId")String id, Model model){
+       PassportDto passportDto = service.getApplicantById(Integer.parseInt(id));
+       model.addAttribute("item",passportDto);
+        System.out.println("Controller: "+passportDto);
+        return "viewPassport.jsp";
     }
 }

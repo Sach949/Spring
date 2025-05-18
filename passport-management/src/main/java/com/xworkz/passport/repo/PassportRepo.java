@@ -9,4 +9,6 @@ public interface PassportRepo {
     String saveData(PassportEntity entity);
 
     List<PassportEntity> getAll();
+
+    PassportEntity getApplicantById(int id);
 }

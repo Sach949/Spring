@@ -26,4 +26,11 @@ public class PassportRepoImpl implements PassportRepo{
         return Persistence.createEntityManagerFactory("myname")
                 .createEntityManager().createNamedQuery("getAll").getResultList();
     }
+
+    @Override
+    public PassportEntity getApplicantById(int requestedIdFromFrontEnd) {
+        return (PassportEntity) Persistence.createEntityManagerFactory("myname")
+                .createEntityManager().createNamedQuery("findApplicantById").setParameter("id",requestedIdFromFrontEnd)
+                .getSingleResult();
+    }
 }

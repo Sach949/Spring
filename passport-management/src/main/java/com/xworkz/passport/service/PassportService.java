@@ -9,4 +9,6 @@ public interface PassportService {
     String saveDataDto(PassportDto dto);
 
     List<PassportDto> getAll();
+
+    PassportDto getApplicantById(int requestedIdFromFrontEnd);
 }

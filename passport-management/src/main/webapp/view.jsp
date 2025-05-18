@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page isELIgnored = "false" %>
 <html>
 
 <style>
@@ -21,30 +20,35 @@ tr:nth-child(even) {
 <table style="width:100%">
 <tr>
 
-<th>Applicant Name<th>
-<th>Father Name<th>
-<th>Mother Name<th>
-<th>Date of Birth<th>
-<th>Contact Number<th>
-<th>Email<th>
-<th>Address<th>
-<th>Office Name<th>
-<th>Body Mark/Birth Mark<th>
-
+<th>Applicant Name</th>
+<th>Father Name</th>
+<th>Mother Name</th>
+<th>Date of Birth</th>
+<th>Contact Number</th>
+<th>Email</th>
+<th>Address</th>
+<th>Office Name</th>
+<th>Body Mark/Birth Mark</th>
+<th>Action</th>
 </tr>
+
+<c:forEach var="item" items = "${listOfDtos}" >
+
 
 <tr>
-<td>Manish</td>
-<td>Anish</td>
-<td>Sripriya</td>
-<td>12-03-1999</td>
-<td>8974512635</td>
-<td>manish@gmail.com</td>
-<td>Delhi</td>
-<td>Delhi</td>
-<td>Cut mark on right hand</td>
-
+<td>${item.applicantName}</td>
+<td>${item.fatherName}</td>
+<td>${item.motherName}</td>
+<td>${item.dob}</td>
+<td>${item.contactNo}</td>
+<td>${item.email}</td>
+<td>${item.address}</td>
+<td>${item.selectOfficeForVerification}</td>
+<td>${item.bodyMark}</td>
+<td><a href="getById?passportId=${item.regID}">view</a></td>
 </tr>
+</c:forEach >
+
 </table>
 
 </body>

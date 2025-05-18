@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "passport_info")
 @NamedQuery(name ="getAll", query = "select p from PassportEntity p")
+@NamedQuery(name ="findApplicantById", query = "select p from PassportEntity p where p.regID =:id")
 @Data
 public class PassportEntity {
 

@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored = "false" %>
 
 <html>
 <body>
 <h2>Passport Seva</h2>
 
 <a href="getAllPassportApplication">Click Here to get all passport application: </a>
+<a href ="getById">Find Applicant By ID: </a>
 
 <form action = "saving" method = "post" >
   <p>
