@@ -45,4 +45,10 @@ public class PassportController {
         System.out.println("Controller: "+passportDto);
         return "viewPassport.jsp";
     }
+
+    @PostMapping("updateById")
+    public String updateApplication(@RequestParam("id")Integer pid, Model model){
+        PassportDto passportDto = service.updateApplicationById();
+    }
+
 }

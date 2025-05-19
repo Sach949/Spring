@@ -11,4 +11,7 @@ public interface PassportService {
     List<PassportDto> getAll();
 
     PassportDto getApplicantById(int requestedIdFromFrontEnd);
+
+    Boolean updateApplicationById(int regID,String applicantName,String fatherName,String motherName,String dob,long contactNo
+            ,String email,String address,String selectOfficeForVerification,String bodyMark);
 }

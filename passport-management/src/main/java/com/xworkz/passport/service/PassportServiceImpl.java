@@ -81,4 +81,11 @@ public class PassportServiceImpl implements PassportService{
         System.out.println("Service :"+passportDto);
         return passportDto;
     }
+
+    @Override
+    public Boolean updateApplicationById(int regID, String applicantName, String fatherName, String motherName, String dob, long contactNo, String email, String address, String selectOfficeForVerification, String bodyMark) {
+        return repo.updateApplicationById(regID,applicantName,fatherName,motherName,dob,contactNo,email,address,selectOfficeForVerification,bodyMark);
+    }
+
+
 }
