@@ -9,10 +9,6 @@ import java.time.LocalDate;
 @Table(name = "passport_info")
 @NamedQuery(name ="getAll", query = "select p from PassportEntity p")
 @NamedQuery(name ="findApplicantById", query = "select p from PassportEntity p where p.regID =:id")
-@NamedQuery(name = "updateById", query = "update PassportEntity p set p.applicantName =:name," +
-        "p.fatherName=:father, p.motherName=:mother,p.dob=:dob, p.contactNo=:contact," +
-        "p.email=:email, p.address=:addr, p.selectOfficeForVerification=:office," +
-        "p.bodyMark=:mark where p.regID=:regId")
 @Data
 public class PassportEntity {
 

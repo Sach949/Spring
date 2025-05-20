@@ -4,55 +4,61 @@
 <html>
 <head>
 <h2>Passport Seva</h2>
-<p>Thank You for registering<p/>
 </head
 
 <body>
-<form action ="updateById" method="post">
-<div>
+<form action ="updating" method="post">
+
+<input type="number" name="regID" value="${item.regID}">
+
+<p>
 <label for ="name">Applicant Name: </label>
 <input type="text" id="" name="applicantName" value="${item.applicantName}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="father">Father Name: </label>
 <input type="text" id="father" name="fatherName" value="${item.fatherName}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="mother">Mother Name: </label>
 <input type="text" id="mother" name="motherName" value="${item.motherName}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="dob">Date Of Birth: </label>
 <input type="date" id="dob" name="dob" value="${item.dob}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="mob">Contact Number: </label>
 <input type="tel" id="mob" name="contactNo" value="${item.contactNo}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="email">Email: </label>
 <input type="email" id="email" name="email" value="${item.email}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="addr">Address: </label>
 <input type="text" id="addr" name="address" value="${item.address}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="ofc">Office Name: </label>
 <input type="text" id="ofc" name="selectOfficeForVerification" value="${item.selectOfficeForVerification}">
-</div>
+</p>
 
-<div>
+<p>
 <label for ="mark">Body Mark/Birth Mark: </label>
 <input type="text" id="mark" name="bodyMark" value="${item.bodyMark}">
-</div>
+</p>
+
+<p>
+<input type="submit" value = "update">
+</p>
 
 </form>
 

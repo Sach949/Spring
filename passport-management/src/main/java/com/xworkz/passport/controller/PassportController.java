@@ -6,10 +6,7 @@ import com.xworkz.passport.service.PassportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +43,20 @@ public class PassportController {
         return "viewPassport.jsp";
     }
 
-    @PostMapping("updateById")
-    public String updateApplication(@RequestParam("id")Integer pid, Model model){
-        PassportDto passportDto = service.updateApplicationById();
+    @GetMapping("update")
+    public String updateApplicationById(@RequestParam("passportId")String pid, Model model){
+        PassportDto passportDto = service.getApplicantById(Integer.parseInt(pid));
+        model.addAttribute("item",passportDto);
+        System.out.println("Update Controller: "+passportDto);
+        return "update.jsp";
     }
+
+    @PostMapping("updating")
+    public String update(PassportDto dto){
+        System.out.println("Update id is:"+dto);
+        service.updateApplicationById(dto);
+        return "updateSuccess.jsp";
+    }
+
 
 }

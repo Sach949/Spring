@@ -45,7 +45,8 @@ tr:nth-child(even) {
 <td>${item.address}</td>
 <td>${item.selectOfficeForVerification}</td>
 <td>${item.bodyMark}</td>
-<td><a href="getById?passportId=${item.regID}">view</a>/<a href="updateById?id${item.regID}">Update</a></td>
+<td><a href="getById?passportId=${item.regID}">view</a>/
+<a href="update?passportId=${item.regID}">Update</a></td>
 
 </tr>
 </c:forEach >

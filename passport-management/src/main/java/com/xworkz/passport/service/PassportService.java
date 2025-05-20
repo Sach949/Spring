@@ -12,6 +12,5 @@ public interface PassportService {
 
     PassportDto getApplicantById(int requestedIdFromFrontEnd);
 
-    Boolean updateApplicationById(int regID,String applicantName,String fatherName,String motherName,String dob,long contactNo
-            ,String email,String address,String selectOfficeForVerification,String bodyMark);
+    void updateApplicationById(PassportDto passportDto);
 }

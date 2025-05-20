@@ -83,8 +83,15 @@ public class PassportServiceImpl implements PassportService{
     }
 
     @Override
-    public Boolean updateApplicationById(int regID, String applicantName, String fatherName, String motherName, String dob, long contactNo, String email, String address, String selectOfficeForVerification, String bodyMark) {
-        return repo.updateApplicationById(regID,applicantName,fatherName,motherName,dob,contactNo,email,address,selectOfficeForVerification,bodyMark);
+    public void updateApplicationById(PassportDto passportDto) {
+        System.out.println("Passport dto is: "+passportDto);
+        if(passportDto != null){
+            PassportEntity passportEntity = repo.getApplicantById(passportDto.getRegID());
+            System.out.println("Get application by id: "+passportEntity);
+            BeanUtils.copyProperties(passportDto,passportEntity);
+            System.out.println("Service passport updating Entity :"+passportEntity);
+            repo.updateApplicationById(passportEntity);
+        }
     }
 
 

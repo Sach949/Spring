@@ -36,25 +36,13 @@ public class PassportRepoImpl implements PassportRepo{
     }
 
     @Override
-    public Boolean updateApplicationById(int regID, String applicantName, String fatherName, String motherName, String dob, long contactNo, String email, String address, String selectOfficeForVerification, String bodyMark) {
+    public void updateApplicationById(PassportEntity passportEntity) {
 
         EntityManager entityManager = Persistence.createEntityManagerFactory("myname")
                 .createEntityManager();
         entityManager.getTransaction().begin();
-        Query query = entityManager.createNamedQuery("updateById");
-        query.setParameter("name",applicantName);
-        query.setParameter("father",fatherName);
-        query.setParameter("mother",motherName);
-        query.setParameter("dob",dob);
-        query.setParameter("contact",contactNo);
-        query.setParameter("email",email);
-        query.setParameter("addr",address);
-        query.setParameter("office",selectOfficeForVerification);
-        query.setParameter("mark",bodyMark);
-        query.setParameter("regId",regID);
-        query.executeUpdate();
+        entityManager.merge(passportEntity);
         entityManager.getTransaction().commit();
-        return true;
     }
 
 }
