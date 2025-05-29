@@ -5,6 +5,27 @@
 <html>
 <body>
 <h2>Ecommerce Facility</h2>
-<p>You have subscribed our facility<p/>
+<p>View Your cart<p/>
+
+<form action="subscription" method="post">
+<div>
+<label for="val">Validity: </label>
+<input type="text" id="val" name="validity">
+</div>
+
+<div>
+<label for="price">Price: </label>
+<input type="number" id="price" name="price">
+</div>
+
+<div>
+<label for="type">Type of subscription: </label>
+<input type="text" id="type" name="typeOfSubscription">
+</div>
+
+<div>
+<input type="submit">
+</div>
+</form>
 </body>
 </html>

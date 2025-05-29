@@ -5,6 +5,27 @@
 <html>
 <body>
 <h2>Ecommerce Facility</h2>
-<p>here is your seller account<p/>
+<p>Seller Account<p/>
+
+<form action="seller" method="post">
+<div>
+<label for="sell">Seller Name: </label>
+<input type="text" id="sell" name="sellerName">
+</div>
+
+<div>
+<label for="type">Type of Product selling: </label>
+<input type="text" id="type" name="typeOfGoodsSelling">
+</div>
+
+<div>
+<label for="reg">Registered Date: </label>
+<input type="date" id="reg" name="registeredDate">
+</div>
+
+<div>
+<input type="submit">
+</div>
+</form>
 </body>
 </html>
